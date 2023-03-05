@@ -24,7 +24,7 @@ class User extends Model
     /*
      * Get the posts for the user.
      */
-    public function posts()
+    public function posts(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Post::class);
     }
