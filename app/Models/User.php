@@ -28,4 +28,9 @@ class User extends Model
     {
         return $this->hasMany(Post::class);
     }
+
+    public function top()
+    {
+        return $this->posts()->orderByDesc('rating')->take(1);
+    }
 }

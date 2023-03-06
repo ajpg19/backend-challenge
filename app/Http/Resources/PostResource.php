@@ -15,7 +15,7 @@ class PostResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "user_id" => $this->user_id,
+            "user_id" => $this->when(request()->fullUrlIs('*/api/users'), $this->user_id),
             "body" => $this->body,
             "title" => $this->title,
             "rating" => $this->when(request()->fullUrlIs('*/api/posts/top'), $this->rating),
