@@ -20,3 +20,14 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::get('users', [\App\Http\Controllers\UserController::class, 'index']);
+
+Route::group([
+    'prefix' => 'posts'
+], function () {
+
+    Route::get('/top', [\App\Http\Controllers\PostController::class, 'top']);
+    Route::get('/{post}', [\App\Http\Controllers\PostController::class, 'show']);
+
+});
+
+
